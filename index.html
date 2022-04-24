@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incentive Calculater</title>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+    <!-- preloader start -->
+    <div id="preloader">Loading...</div>
+    <!-- preloader end -->
+
+    <!-- navbar start -->
+    <div class="navbar-fixed">
+        <nav class="light-blue lighten-1">
+            <div class="nav-wrapper">
+                <a href="index.html" class="brand-logo"><i class="material-icons left">calculate</i></a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="#add-model">Add new Model<i class="material-icons left">add</i></a></li>
+                    <li><a href="#update-qua">Update quantity<i class="material-icons left">update</i></a></li>
+                    <li><a href="#all-detail">Incentive Detail<i class="material-icons left">description</i></a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <ul class="sidenav" id="mobile-demo">
+        <li><a class="sidenav-close" href="#add-model">Add new Model<i class="material-icons left">add</i></a></li>
+        <li><a class="sidenav-close" href="#update-qua">Update quantity<i class="material-icons left">update</i></a>
+        </li>
+        <li><a class="sidenav-close" href="#all-detail">Incentive Detail<i
+                    class="material-icons left">description</i></a></li>
+    </ul>
+    <!-- navbar end -->
+
+    <h4 class="center-align light-blue-text text-lighten-1">Incentive Calculater</h4>
+    <!-- add new mobile start -->
+
+    <section class="container" id="add-model">
+        <div class="row">
+            <div class="col s12 m10 offset-m1">
+                <div class="card m-td">
+                    <form id="form-add-model">
+                        <div class="card-content">
+                            <span class="card-title center-align">Add New Model</span>
+                            <div class="row">
+                                <div class="input-field col s12 m6">
+                                    <i class="material-icons prefix">phone_android</i>
+                                    <input id="name" type="text" class="validate" required>
+                                    <label for="name">Model Name</label>
+                                </div>
+                                <div class="input-field col s12 m6">
+                                    <i class="material-icons prefix">currency_rupee</i>
+                                    <input id="amount" type="number" class="validate" required min="1">
+                                    <label for="amount">Amount</label>
+                                </div>
+                            </div>
+                            <div class="center-align">
+                                <button class="btn waves-effect waves-light  light-blue lighten-1" type="submit"
+                                    name="action">Add
+                                    <i class="material-icons right">add</i>
+                                </button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- add new mobile end -->
+
+
+    <!-- add quantity start -->
+    <section class="container" id="update-qua">
+        <div class="row">
+            <div class="col s12 m10 offset-m1">
+                <div class="card m-td">
+                    <form id="quantity-add-remove">
+                        <div class="card-content">
+                            <span class="card-title center-align">Update Quantity</span>
+                            <div class="row">
+                                <div class="input-field col s12 m6">
+                                    <select id="modelList">
+                                        <option value="-1" disabled selected>Choose Model</option>
+                                    </select>
+                                </div>
+                                <div class="input-field col s12 m6">
+                                    <i class="material-icons prefix">123</i>
+                                    <input id="quantity" type="number" class="validate" required min="1">
+                                    <label for="quantity">Quantity</label>
+                                </div>
+                            </div>
+                            <div class="center-align">
+                                <a class="btn-floating btn-large waves-effect waves-light light-blue lighten-1"
+                                    id="add"><i class="material-icons">add</i></a>&nbsp;&nbsp;
+                                <a class="btn-floating btn-large waves-effect waves-light red" id="remove"><i
+                                        class="material-icons">remove</i></a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- add quantity end -->
+
+    <!-- show details start -->
+    <section id="all-detail">
+        <div class="my-container m-td">
+            <div class="center-align ">
+                <button class="btn waves-effect waves-light light-blue lighten-1" id="detail">Detail of
+                    all Mobile
+                    <i class="material-icons right">description</i>
+                </button>
+            </div>
+            <div class="row" id="ince-detail">
+
+            </div>
+            <h4 class="center-align" id="total"></h4>
+        </div>
+    </section>
+    <!-- show details end -->
+
+    <!-- js file -->
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="js/index.js"></script>
+
+</body>
+
+</html>
