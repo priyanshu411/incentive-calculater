@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.sidenav');
-     M.Sidenav.init(elems);
+    M.Sidenav.init(elems);
 });
 
 //variable
@@ -16,11 +16,16 @@ let obj = {
 };
 let size = 0;
 
-
+// add events
 document.getElementById("form-add-model").addEventListener("submit", getModelDetail);
 document.getElementById("add").addEventListener("click", add_quantity);
 document.getElementById("remove").addEventListener("click", remove_quantity);
 document.getElementById("detail").addEventListener("click", show_details);
+let deleteObj = document.getElementsByClassName("delete");
+
+for (let i = 0; i < deleteObj.length; i++) {
+    deleteObj[i].addEventListener("click", deleteAllData);
+}
 
 window.onload = loadData;
 
@@ -151,6 +156,24 @@ function show_details() {
             M.toast({ html: 'Data not found', displayLength: 1200, classes: "blue lighten-1" });
     }
     catch (err) {
+        M.toast({ html: '<i class="material-icons">close</i>' + err.name, displayLength: 1200, classes: "red lighten-1" });
+    }
+}
+
+// delete all data
+function deleteAllData() {
+    try {
+        let con = confirm("Are you sure you want to delete all data");
+        if (con) {
+            let temp = localStorage.getItem("mobileDetail");
+            if (temp != null) {
+                localStorage.setItem("mobileDetailBackup", temp);
+            }
+            localStorage.removeItem("mobileDetail");
+            M.toast({ html: '<i class="material-icons">done</i>All Data deleted, plese refresh', displayLength: 1200, classes: "green darken-1" });
+
+        }
+    } catch (err) {
         M.toast({ html: '<i class="material-icons">close</i>' + err.name, displayLength: 1200, classes: "red lighten-1" });
     }
 }
